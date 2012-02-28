@@ -2,5 +2,5 @@ log.level: ALL
 
 kick:
   - timeout: 900 # 15 minutes
-    message: "§7You seem to have taken a break from Minecraft, so we logged you out."
+    message: "\u00A77You seem to have taken a break from Minecraft, so we logged you out."
     

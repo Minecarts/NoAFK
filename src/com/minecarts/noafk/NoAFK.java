@@ -74,17 +74,19 @@ public class NoAFK extends JavaPlugin implements Listener {
                         Integer timeout = null;
                         String message = null;
                         
-                        for(Map<String, Object> settings : kickSettings) {
-                            String permission = (String) settings.get("permission");
-                            if(permission != null) {
-                                if(player.isPermissionSet(permission) && player.hasPermission(permission)) {
+                        if(kickSettings != null) {
+                            for(Map<String, Object> settings : kickSettings) {
+                                String permission = (String) settings.get("permission");
+                                if(permission != null) {
+                                    if(player.isPermissionSet(permission) && player.hasPermission(permission)) {
+                                        if(timeout == null) timeout = (Integer) settings.get("timeout");
+                                        if(message == null) message = (String) settings.get("message");
+                                    }
+                                }
+                                else {
                                     if(timeout == null) timeout = (Integer) settings.get("timeout");
                                     if(message == null) message = (String) settings.get("message");
                                 }
-                            }
-                            else {
-                                if(timeout == null) timeout = (Integer) settings.get("timeout");
-                                if(message == null) message = (String) settings.get("message");
                             }
                         }
                         

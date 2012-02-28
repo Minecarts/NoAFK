@@ -5,6 +5,7 @@ website: http://minecarts.com/
 
 main: com.minecarts.noafk.NoAFK
 version: ${pom.version}
+softdepend: [ DBPermissions ]
 
 commands:
     noafk:

@@ -1,0 +1,18 @@
+name: NoAFK
+description: "Monitors, tags, and kicks AFK players"
+author: megabytes
+website: http://minecarts.com/
+
+main: com.minecarts.noafk.NoAFK
+version: ${pom.version}
+
+commands:
+    noafk:
+        description: NoAFK internal plugin commands
+        usage: /<command> reload
+        
+permissions:
+    noafk:
+        admin.reload:
+            description: Reload NoAFK config
+            default: op

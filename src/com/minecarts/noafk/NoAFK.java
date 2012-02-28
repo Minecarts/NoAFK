@@ -18,8 +18,9 @@ import org.bukkit.command.Command;
 
 import org.bukkit.entity.Player;
 
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 
 
 public class NoAFK extends JavaPlugin implements Listener {
@@ -152,19 +153,19 @@ public class NoAFK extends JavaPlugin implements Listener {
     
     
     
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOWEST)
     public void on(org.bukkit.event.player.PlayerChatEvent event) {
         wakePlayer(event.getPlayer());
     }
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOWEST)
     public void on(org.bukkit.event.player.PlayerCommandPreprocessEvent event) {
         wakePlayer(event.getPlayer());
     }
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOWEST)
     public void on(org.bukkit.event.player.PlayerLoginEvent event) {
         wakePlayer(event.getPlayer());
     }
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOWEST)
     public void on(org.bukkit.event.player.PlayerQuitEvent event) {
         lastDirection.remove(event.getPlayer());
         lastDisplayName.remove(event.getPlayer());

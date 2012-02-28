@@ -107,10 +107,15 @@ public class NoAFK extends JavaPlugin implements Listener {
         super.reloadConfig();
         final FileConfiguration config = getConfig();
         
-        logger.setLevel(Level.parse(config.getString("log.level")));
+        try {
+            logger.setLevel(Level.parse(config.getString("log.level")));
         
-        kickSettings = config.getMapList("kick");
-        kickSettings.addAll(config.getDefaultSection().getMapList("kick"));
+            kickSettings = config.getMapList("kick");
+            kickSettings.addAll(config.getDefaultSection().getMapList("kick"));
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
     }
     
     

@@ -132,6 +132,8 @@ public class NoAFK extends JavaPlugin implements Listener {
         String name = org.bukkit.ChatColor.GRAY + player.getName();
         lastDisplayName.put(player, player.getDisplayName());
         player.setDisplayName(name);
+        // TODO: revert this truncation if color codes stop counting towards length limit
+        if(name.length() > 16) name = name.substring(0, 14) + "..";
         lastPlayerListName.put(player, player.getPlayerListName());
         player.setPlayerListName(name);
         

@@ -130,13 +130,14 @@ public class NoAFK extends JavaPlugin implements Listener {
     private void sleepPlayer(Player player) {
         if(isAFK(player)) return;
         
-        String name = org.bukkit.ChatColor.GRAY + player.getName();
         lastDisplayName.put(player, player.getDisplayName());
-        player.setDisplayName(name);
-        // TODO: revert this truncation if color codes stop counting towards length limit
-        if(name.length() > 16) name = name.substring(0, 14) + "..";
         lastPlayerListName.put(player, player.getPlayerListName());
-        player.setPlayerListName(name);
+        String name = org.bukkit.ChatColor.GRAY + player.getName();
+        player.setDisplayName(name);
+        // TODO: remove truncation if color codes stop counting towards length limit
+        player.setPlayerListName(name.length() > 16
+            ? name.substring(0, 14) + ".."
+            : name);
         
         log("{0} is AFK", player.getName());
     }

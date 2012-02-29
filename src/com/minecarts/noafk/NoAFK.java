@@ -30,7 +30,7 @@ public class NoAFK extends JavaPlugin implements Listener {
     protected Map<Player, String> lastDisplayName = new WeakHashMap<Player, String>();
     protected Map<Player, String> lastPlayerListName = new WeakHashMap<Player, String>();
     
-    protected List<Map<String, Object>> kickSettings;
+    protected List<Map<?, ?>> kickSettings;
     
     
     public void onEnable() {
@@ -76,7 +76,7 @@ public class NoAFK extends JavaPlugin implements Listener {
                         String message = null;
                         
                         if(kickSettings != null) {
-                            for(Map<String, Object> settings : kickSettings) {
+                            for(Map<?, ?> settings : kickSettings) {
                                 String permission = (String) settings.get("permission");
                                 if(permission != null) {
                                     if(player.isPermissionSet(permission) && player.hasPermission(permission)) {

@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.minecarts</groupId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <artifactId>NoAFK</artifactId>
     <name>NoAFK</name>
     <url>http://minecarts.com/</url>
@@ -13,6 +13,10 @@
         <repository>
             <id>bukkit</id>
             <url>http://repo.bukkit.org/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
         </repository>
     </repositories>
     <build>

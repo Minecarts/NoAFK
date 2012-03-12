@@ -13,7 +13,6 @@ commands:
         usage: /<command> reload
         
 permissions:
-    noafk:
-        admin.reload:
-            description: Reload NoAFK config
-            default: op
+    noafk.admin.reload:
+        description: Reload NoAFK config
+        default: op

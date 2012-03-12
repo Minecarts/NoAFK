@@ -24,8 +24,6 @@ import org.bukkit.event.EventPriority;
 
 
 public class NoAFK extends JavaPlugin implements Listener {
-    static final Logger logger = Logger.getLogger("com.minecarts.noafk");
-    
     protected Map<Player, DatedVector> lastDirection = new WeakHashMap<Player, DatedVector>();
     protected Map<Player, String> lastDisplayName = new WeakHashMap<Player, String>();
     protected Map<Player, String> lastPlayerListName = new WeakHashMap<Player, String>();
@@ -111,8 +109,6 @@ public class NoAFK extends JavaPlugin implements Listener {
         final FileConfiguration config = getConfig();
         
         try {
-            logger.setLevel(Level.parse(config.getString("log.level")));
-        
             kickSettings = config.getMapList("kick");
             kickSettings.addAll(config.getDefaultSection().getMapList("kick"));
         }
@@ -132,7 +128,7 @@ public class NoAFK extends JavaPlugin implements Listener {
         
         lastDisplayName.put(player, player.getDisplayName());
         lastPlayerListName.put(player, player.getPlayerListName());
-        String name = org.bukkit.ChatColor.GRAY + player.getName();
+        String name = org.bukkit.ChatColor.DARK_GRAY + player.getName();
         player.setDisplayName(name);
         // TODO: remove truncation if color codes stop counting towards length limit
         player.setPlayerListName(name.length() > 16
@@ -178,7 +174,7 @@ public class NoAFK extends JavaPlugin implements Listener {
         log(Level.INFO, message);
     }
     public void log(Level level, String message) {
-        logger.log(level, MessageFormat.format("{0}> {1}", getDescription().getName(), message));
+        getLogger().log(level, message);
     }
     public void log(String message, Object... args) {
         log(MessageFormat.format(message, args));
